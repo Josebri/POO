@@ -1,0 +1,84 @@
+package POO;
+import java.util.Scanner;
+
+public class usoCoche {
+	
+	public static void main(String args[]){
+		
+		Scanner inicio = new Scanner(System.in); 
+		Scanner sc = new Scanner(System.in); 
+		camioneta camioneta = new camioneta(); 
+		int y=1;
+		do {
+			System.out.println("Que deseas hacer?\n1 - Solicitar datos de la camioneta\n2 - Modificar datos de la camioneta\n3 - Salir");
+			int x = inicio.nextInt(), h;
+			switch(x) {
+				case 1: 
+					
+					System.out.println("La camioneta tiene los siguientes datos actuales");
+					camioneta.ditodo();
+					break;
+					
+				case 2: 
+					
+					int n=1;
+					do {
+						System.out.println("Que datos quieres cambiar?\n");
+						System.out.println("1 - Color\n2 - Tipo de asiento\n3 - Existencia de climatizador\n4 - Traccion\n5 - Finalizar modificacion");
+						int i = inicio.nextInt();
+						switch(i) {
+							case 1:
+								System.out.println("De que color es la camioneta?");
+								String color=sc.nextLine();
+								camioneta.configuracolor(color);
+								break;
+								
+							case 2:
+								
+								System.out.println("Los asientos son de cuero?\n1 - SI          2 - NO");
+								h = inicio.nextInt();
+								camioneta.configuracionasientos(h);
+								break;
+								
+							case 3: 
+								
+								System.out.println("La camioneta tiene climatizador?\n1 - SI          2 - NO");
+								h = inicio.nextInt();
+								camioneta.configuracionclimatizador(h);
+								break;
+								
+							case 4: 
+								
+								System.out.println("Seleccione uno\n\n1 La camioneta tiene traccion automatica\n2 La camioneta tiene traccion manual");
+								h = inicio.nextInt();
+								camioneta.configuraciontraccion(h);
+								break;
+								
+							case 5: 
+								n=0;
+								break;
+								
+							default: 
+								
+								System.out.println("Opcion incorrecta, intente de nuevo");
+						}
+					}while(n==1);
+					break;
+						
+				case 3:
+						
+					y=0;
+					break;
+					
+				default:
+						
+					System.out.println("Opcion incorrecta, intente de nuevo");
+					y=1;
+					break;
+			}
+		}while(y==1);
+		
+		inicio.close(); 
+		sc.close();
+		}
+}
